@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:fitsSystemWindows="true"
+    tools:context="mx.eltec.smartheattester.MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/fakeActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="150dp"
+            android:layout_height="56dp"
+            android:layout_alignParentStart="false"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="false"
+            android:layout_marginLeft="64dp"
+            android:paddingTop="8dp"
+            android:scaleType="fitStart"
+            app:srcCompat="@drawable/main_logo_dark" />
+
+        <ImageButton
+            android:id="@+id/retryScanImageButton"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:onClick="startScan"
+            app:srcCompat="@drawable/ic_action_reload" />
+
+        <ImageButton
+            android:id="@+id/backImageButton"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_back" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/separatorRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/fakeActionBar"
+        android:alpha="0.0"
+        android:background="@android:color/darker_gray">
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/resultsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/separatorRelativeLayout"
+        android:layout_marginTop="16dp"
+        android:visibility="gone">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/scanResultsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="false" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/start_button_back"
+            android:backgroundTint="@color/colorAccent"
+            android:backgroundTintMode="src_atop"
+            android:onClick="startTest"
+            android:text="INICIAR PRUEBA"
+            android:textColor="#ffffff" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/noResultsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/separatorRelativeLayout"
+        android:background="#ffffff"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="140dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/card_empty" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="¡Sin Resultados!"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:maxLines="3"
+                android:text="No se encontró ninguna red SmartHeat/miCalorex al alcance."
+                android:textColor="#424242" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
